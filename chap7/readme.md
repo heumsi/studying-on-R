@@ -3,7 +3,7 @@
 
 ---
 
-<h1 id="chap7.-데이터-정제">chap6. 데이터 정제</h1>
+<h1 id="chap7.-데이터-정제">chap7. 데이터 정제</h1>
 <h2 id="결측치-정제하기">1. 결측치 정제하기</h2>
 <h3 id="결측치-확인">결측치 확인</h3>
 <pre><code>table(is.na(df$score))
