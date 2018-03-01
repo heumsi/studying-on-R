@@ -1,0 +1,2 @@
+. filter=lfs diff=lfs merge=lfs -text
+Koweps_hpc10_2015_beta1.sav filter=lfs diff=lfs merge=lfs -text
