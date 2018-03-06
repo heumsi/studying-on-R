@@ -1,0 +1,64 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# chap8. ê·¸ë˜?”„ ë§Œë“¤ê¸?
+
+### ì¤€ë¹? ?™˜ê²?
+```{r message=FALSE}
+library(ggplot2)
+library(dplyr)
+mpg <- ggplot2::mpg
+```
+
+## 1. ?‚°? ?„
+
+### ì¶? ?„¤? • ì¶”ê?€
+```{r}
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+  geom_point()
+```
+
+## 2. ?‰ê·? ë§‰ë?€ ê·¸ë˜?”„
+```{r}
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+	geom_point() +
+	xlim(3, 6) +
+	ylim(10, 30)
+```
+
+### ?‰ê· í‘œ ë§Œë“¤ê¸?
+```{r}
+df_mpg <- mpg %>%
+	group_by(drv) %>%
+	summarise(mean_hwy = mean(hwy))
+```
+
+### ê·¸ë˜?”„ ?ƒ?„±?•˜ê¸?, ?¬ê¸°ìˆœ ? •? ¬?•˜ê¸?
+```{r}
+ggplot(data = df_mpg, aes(x = reorder(drv, -mean_hwy), y = mean_hwy)) + 
+	geom_col()
+```
+
+## 3. ë¹ˆë„ ë§‰ë?€ ê·¸ë˜?”„
+```{r}
+ggplot(data = mpg, aes(x = drv)) +
+	geom_bar()
+```
+
+## 4. ?„  ê·¸ë˜?”„
+```{r}
+ggplot(data = economics, aes(x = date, y = unemploy)) +
+	geom_line()
+```
+
+## 5. ?ƒ? ê·¸ë¦¼
+```{r}
+ggplot(data = mpg, aes(x = drv, y = hwy)) +
+  geom_boxplot()
+```
